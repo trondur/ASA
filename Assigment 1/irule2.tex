@@ -1,0 +1,118 @@
+\documentclass[a0paper, landscape]{paper}
+\usepackage{../mathpartir}
+\usepackage[margin=0.5cm]{geometry}
+\input{../while}
+\begin{document}
+
+
+\section*{2.3:}
+\[
+\begin{array}[t]{l@{\quad\quad}l}
+\begin{array}{r@{\;=\;}l}
+s_0 & [x\mapsto 17 y\mapsto 5] \\
+s_1 & [x\mapsto 17,\; y\mapsto 5; y\mapsto 0] \\
+s_2 & [x\mapsto 17,\; y\mapsto 5; y\mapsto 1] \\
+s_3 & [x\mapsto 12,\; y\mapsto 5; y\mapsto 1] \\
+s_4 & [x\mapsto 12,\; y\mapsto 5; y\mapsto 2] \\
+s_5 & [x\mapsto 7, \; y\mapsto 5; y\mapsto 2] \\
+s_6 & [x\mapsto 7, \; y\mapsto 5; y\mapsto 3] \\
+s_7 & [x\mapsto 2, \; y\mapsto 5; y\mapsto 3] \\
+\end{array}
+&
+\begin{array}{r@{\quad=\quad}l}
+b & \cvar{y}\le\cvar{x} \\
+A & \ccomp {\cass z 0} B \\
+B & \cwhile b C \\
+C & \ccomp {\cass z {\cvar z + 1}} D \\
+D & \cass x {\cvar x - \cvar y} \\
+\end{array}
+\end{array}
+\]
+
+\[
+\inferrule*[left=\rcompns, width=\textwidth]
+{ 
+  \inferrule*[left=\rassns]{ }{\ns {\cass z 0} {s} {s_1}}\\
+  \inferrule*[left=\rwhilettns, width=\textwidth, right=\ensuremath{\beval {b} {s_1}=\ltrue}]
+  {
+    \inferrule*[left=\rcompns]
+    { 
+      \inferrule*[left=\rassns]{ }{\ns {\cass z {\cvar z + 1}} {s_1} {s_2}} \\
+      \inferrule*[left=\rassns]{ }{\ns {\cass x {\cvar x - y}} {s_2} {s_3}}
+    }
+    {\ns C {s_1} {s_3}} \\
+    {\inferrule*[left=\rwhilettns, width=\textwidth, right=\ensuremath{\beval {b} {s_3}=\ltrue}]
+      {
+        \inferrule*[left=\rcompns]
+        { 
+          \inferrule*[left=\rassns]{ }{\ns {\cass z {\cvar z + 1}} {s_3} {s_4}} \\
+          \inferrule*[left=\rassns]{ }{\ns {\cass x {\cvar x - y}} {s_4} {s_5}}
+        }
+        {\ns C {s_3} {s_5}} \\
+        {\inferrule*[left=\rwhilettns, width=\textwidth, right=\ensuremath{\beval {b} {s_5}=\ltrue}]
+          {
+            \inferrule*[left=\rcompns]
+            { 
+              \inferrule*[left=\rassns]{ }{\ns {\cass z {\cvar z + 1}} {s_5} {s_6}} \\
+              \inferrule*[left=\rassns]{ }{\ns {\cass x {\cvar x - y}} {s_6} {s_7}}
+            }
+            {\ns C {s_5} {s_7}} \\
+            {\inferrule*[left=\rwhileffns, right=\ensuremath{\beval {b} {s_7}=\lfalse}]{ }{\ns B {s_7} {s_7}}}
+          }
+          {\ns B {s_5} {s_7}}
+        }
+      }
+      {\ns B {s_3} {s_7}}
+    }
+  }
+  {\ns B {s_1} {s_7}}    
+}
+{\ns A {s_0} {s_7}}
+\]
+
+\section*{2.4:}
+Do the following statements terminate:\\
+\cwhile {\neg(\cvar{x}= 1)} (\ccomp {\cass y y*x} {\cass x x-1}) \\
+\[
+\begin{array}[t]{l@{\quad\quad}l}
+\begin{array}{r@{\;=\;}l}
+s_0 & [x\mapsto 0 y\mapsto 0] \\
+s_1 & [x\mapsto 0,\; y\mapsto 0] \\
+s_2 & [x\mapsto -1,\; y\mapsto 0] \\
+s_3 & [x\mapsto -1,\; y\mapsto 0] \\
+s_4 & [x\mapsto -2,\; y\mapsto 0] \\
+\end{array}
+&
+\begin{array}{r@{\quad=\quad}l}
+b & \neg(\cvar{x}= 1) \\
+A & \cwhile b B \\
+B & \ccomp {\cass y y*x} C \\
+C & \cass x x-1 \\
+\end{array}
+\end{array}
+\]
+
+\[
+\inferrule*[left=\rwhilettns, width=\textwidth, right={\beval b {s_0} = \ltrue}]
+{
+  \inferrule*[left=\rcompns]
+  { 
+    \inferrule*[left=\rassns]{ }{\ns {\cass y {\cvar y * \cvar x}} {s_0} {s_1}} \\
+        \inferrule*[left=\rassns]{ }{\ns {\cass x {\cvar x - 1}} {s_1} {s_2}}
+  }
+  {\ns B {s_0} {s_2}}
+  \inferrule*[left=\rwhilettns, width=\textwidth, right={\beval b {s_2} = \ltrue}]
+  {
+    \inferrule*[left=\rcompns]
+    { 
+      \inferrule*[left=\rassns]{ }{\ns {\cass y {\cvar y * \cvar x}} {s_2} {s_3}} \\
+          \inferrule*[left=\rassns]{ }{\ns {\cass x {\cvar x - 1}} {s_3} {s_4}}
+    }
+    {\ns B {s_2} {s_4}}{\ns A {s_4} {s_?}}
+  }
+  {\ns A {s_2} {s_?}}
+}
+{\ns A {s_0} {s_?}}
+\]
+
+\end{document}

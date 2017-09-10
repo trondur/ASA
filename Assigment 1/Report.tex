@@ -1,10 +1,40 @@
-\documentclass[a4paper]{paper}
+\documentclass[a0paper, landscape]{paper}
 \usepackage{../mathpartir}
 \usepackage[margin=0.5cm]{geometry}
 \input{../while}
 \begin{document}
 
 \section*{2.3:}
+
+\[
+\inferrule*[left=\rcompns, width=\textwidth]{ 
+  \inferrule*[left=\rassns]{ }{\ns {\cass x 3} {[]} {[x\mapsto 3]}}\\
+  \inferrule*[left=\rcompns]{ 
+    \inferrule*[left=\rassns]{ }{\ns {\cass y 0} {[x\mapsto 3]} {[x\mapsto 3,\; y\mapsto 0]}}\\
+    \inferrule*[left=\rwhilettns, width=\textwidth, right=\ensuremath{\beval {\neg(\cvar{x}\le 0)} {[x\mapsto 3,\; y\mapsto 0]}=\ltrue}]{
+      \inferrule*[left=\rcompns]{ 
+        \inferrule*[left=\rassns]{ }{\ns {\cass y {\cvar y + \cvar x}} {[x\mapsto 3,\; y\mapsto 0]} {[x\mapsto 3,\; y\mapsto 3]}} \\
+        \inferrule*[left=\rassns]{ }{\ns {\cass x {\cvar x - 1}} {[x\mapsto 3,\; y\mapsto 3]} {[x\mapsto 2,\; y\mapsto 3]}}
+      }{\ns D {[x\mapsto 3,\; y\mapsto 0]} {[x\mapsto 2,\; y\mapsto 3]}} \\
+       {\inferrule*[left=\rwhilettns, width=\textwidth, right=\ensuremath{\beval {\neg(\cvar{x}\le 0)} {[x\mapsto 2,\; y\mapsto 3]}=\ltrue}]{
+           \inferrule*[left=\rcompns]{ 
+             \inferrule*[left=\rassns]{ }{\ns {\cass y {\cvar y + \cvar x}} {[x\mapsto 2,\; y\mapsto 3]} {[x\mapsto 2,\; y\mapsto 5]}} \\
+             \inferrule*[left=\rassns]{ }{\ns {\cass x {\cvar x - 1}} {[x\mapsto 2,\; y\mapsto 5]} {[x\mapsto 1,\; y\mapsto 5]}}
+           }{\ns D {[x\mapsto 2,\; y\mapsto 3]} {[x\mapsto 1,\; y\mapsto 5]}} \\
+                      {\inferrule*[left=\ensuremath{T_3\quad=\quad}\rwhilettns, width=\textwidth, right=\ensuremath{\beval {\neg(\cvar{x}\le 0)} {[x\mapsto 1,\; y\mapsto 5]}=\ltrue}]{
+  \inferrule*[left=\rcompns]{ 
+    \inferrule*[left=\rassns]{ }{\ns {\cass y {\cvar y + \cvar x}} {[x\mapsto 1,\; y\mapsto 5]} {[x\mapsto 1,\; y\mapsto 6]}} \\
+    \inferrule*[left=\rassns]{ }{\ns {\cass x {\cvar x - 1}} {[x\mapsto 1,\; y\mapsto 6]} {[x\mapsto 0,\; y\mapsto 6]}}
+  }{\ns D {[x\mapsto 1,\; y\mapsto 5]} {[x\mapsto 0,\; y\mapsto 6]}} \\
+  {\inferrule*[left=\rwhileffns, right=\ensuremath{\beval {\neg(\cvar{x}\le 0)} {[x\mapsto 0,\; y\mapsto 6]}=\lfalse}]{ }{\ns C {[x\mapsto 0,\; y\mapsto 6]} {[x\mapsto 0,\; y\mapsto 6]}}}
+}{\ns C {[x\mapsto 1,\; y\mapsto 5]} {[x\mapsto 0,\; y\mapsto 6]}}
+}
+         }{\ns C {[x\mapsto 2,\; y\mapsto 3]} {[x\mapsto 0,\; y\mapsto 6]}}
+       }
+    }{\ns C {[x\mapsto 3,\; y\mapsto 0]} {[x\mapsto 0,\; y\mapsto 6]}}    
+  }{\ns B {[x\mapsto 3]} {[x\mapsto 0,\; y\mapsto 6]}}
+}{\ns A {[]} {[x\mapsto 0,\; y\mapsto 6]}}
+\]
 
 \section*{2.4:}
 Do the following statements terminate:\\
@@ -14,17 +44,17 @@ Do the following statements terminate:\\
 
 \cwhile {true}  \cskip \\
 
-\section{2.6:}
+\section*{2.6:}
 Show that $S1;(S2;S3)$ and $(S1;S2);S3$ are semantically equivalent: \\
 
 Show that $S1;S2$ and $S2;S1$ are not always semantically equivalent:
 
 
 
-\section{2.7:}
+\section*{2.7:}
 While can be extended with the:
  \crepeat S b statement:
 
-\section{2.8:}
+\section*{2.8:}
 
 \end{document}
