@@ -1,0 +1,39 @@
+
+\newcommand{\rskipns}{\ensuremath{\mathsf{[skip_{ns}]}}}
+\newcommand{\rassns}{\ensuremath{\mathsf{[ass_{ns}]}}}
+\newcommand{\rifttns}{\ensuremath{\mathsf{[if^{tt}_{ns}]}}}
+\newcommand{\rifffns}{\ensuremath{\mathsf{[if^{ff}_{ns}]}}}
+\newcommand{\rwhilettns}{\ensuremath{\mathsf{[while^{tt}_{ns}]}}}
+\newcommand{\rwhileffns}{\ensuremath{\mathsf{[while^{ff}_{ns}]}}}
+\newcommand{\rcompns}{\ensuremath{\mathsf{[comp_{ns}]}}}
+
+\newcommand{\rskipsos}{\ensuremath{\mathsf{[skip_{sos}]}}}
+\newcommand{\rasssos}{\ensuremath{\mathsf{[ass_{sos}]}}}
+\newcommand{\rifttsos}{\ensuremath{\mathsf{[if^{tt}_{sos}]}}}
+\newcommand{\rifffsos}{\ensuremath{\mathsf{[if^{ff}_{sos}]}}}
+\newcommand{\rwhilesos}{\ensuremath{\mathsf{[while_{sos}]}}}
+\newcommand{\rcompasos}{\ensuremath{\mathsf{[comp^1_{sos}]}}}
+\newcommand{\rcompbsos}{\ensuremath{\mathsf{[comp^2_{sos}]}}}
+
+\newcommand{\cmd}[1]{\ensuremath{\mathsf{\mathbf{{#1}}}}}
+\newcommand{\cvar}[1]{\ensuremath{\mathtt{{#1}}}}
+\newcommand{\cskip}{\ensuremath{\cmd{skip}}}
+\newcommand{\ccomp}[2]{\ensuremath{{#1};\; {#2}}}
+\newcommand{\cass}[2]{\ensuremath{\cvar{#1} := {#2}}}
+\newcommand{\cif}[3]{\ensuremath{\cmd{if}\; {#1}\; \cmd{then}\; {#2}\; \cmd{else}\; {#3}}}
+\newcommand{\cwhile}[2]{\ensuremath{\cmd{while}\; {#1}\; \cmd{do}\; {#2}}}
+\newcommand{\crepeat}[2]{\ensuremath{\cmd{repeat}\; {#1}\; \cmd{until}\; {#2}}}
+\newcommand{\cfor}[4]{\ensuremath{\cmd{for}\; {\cvar {#1}} := {#2}\; \cmd{to}\; {#3}\; \cmd {do}\; {#4}}}
+\newcommand{\ns}[3]{\ensuremath{\langle{#1},\; {#2}\rangle\rightarrow{#3}}}
+\newcommand{\sos}[2]{\ensuremath{\langle{#1},\; {#2}\rangle}}
+\newcommand{\dev}{\ensuremath{\Rightarrow}}
+\newcommand{\devstar}{\ensuremath{\Rightarrow^*}}
+\newcommand{\devk}[1]{\ensuremath{\Rightarrow^{#1}}}
+\newcommand{\beval}[2]{\ensuremath{\mathcal{B}[{#1}]_{#2}}}
+\newcommand{\aeval}[2]{\ensuremath{\mathcal{A}[{#1}]_{#2}}}
+\newcommand{\ltrue}{\ensuremath{\mathbf{tt}}}
+\newcommand{\lfalse}{\ensuremath{\mathbf{ff}}}
+\newcommand{\pand}{\ensuremath{\wedge}}
+
+\newcommand{\cond}[1]{\ensuremath{\{{#1}\}}}
+\newcommand{\triple}[3]{\ensuremath{\cond{#1} {#2} \cond{#3}}}

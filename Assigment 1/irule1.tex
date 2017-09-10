@@ -1,0 +1,74 @@
+\documentclass[a4paper]{paper}
+\usepackage{../mathpartir}
+\usepackage[margin=0.5cm]{geometry}
+\input{../while}
+\begin{document}
+
+\[
+\begin{array}[t]{l@{\quad\quad}l}
+\begin{array}{r@{\;=\;}l}
+s & [x\mapsto 3] \\
+s_1 & [x\mapsto 3,\; y\mapsto 0] \\
+s_2 & [x\mapsto 3,\; y\mapsto 3] \\
+s_3 & [x\mapsto 2,\; y\mapsto 3] \\
+s_4 & [x\mapsto 2,\; y\mapsto 5] \\
+s_5 & [x\mapsto 1,\; y\mapsto 5] \\
+s_6 & [x\mapsto 1,\; y\mapsto 6] \\
+s_7 & [x\mapsto 0,\; y\mapsto 6] \\
+\end{array}
+&
+\begin{array}{r@{\quad=\quad}l}
+b & \neg(\cvar{x}\le 0) \\
+A & \ccomp {\cass x 3} B \\
+B & \ccomp {\cass y 0} C \\
+C & \cwhile b D \\
+D & \ccomp {\cass y {\cvar y + \cvar x}} {\cass x {\cvar x - 1}} \\
+\end{array}
+\end{array}
+\]
+
+\[
+\inferrule*[left=\rcompns, width=\textwidth]{ 
+  \inferrule*[left=\rassns]{ }{\ns {\cass x 3} {[]} s}\\
+  \inferrule*[left=\rcompns]{ 
+    \inferrule*[left=\rassns]{ }{\ns {\cass y 0} s {s_1}}\\
+    T_1
+  }{\ns B s {s_7}}
+}{\ns A {[]} {s_7}}
+\]
+
+\[
+\inferrule*[left=\ensuremath{T_1\quad=\quad}\rwhilettns, width=\textwidth, right={\beval b {s_1} = \ltrue}]{
+  \inferrule*[left=\rcompns]{ 
+    \inferrule*[left=\rassns]{ }{\ns {\cass y {\cvar y + \cvar x}} {s_1} {s_2}} \\
+    \inferrule*[left=\rassns]{ }{\ns {\cass x {\cvar x - 1}} {s_2} {s_3}}
+  }{\ns D {s_1} {s_3}} \\
+  {T_2}
+}{\ns C {s_1} {s_7}}
+\]
+
+\[
+\inferrule*[left=\ensuremath{T_2\quad=\quad}\rwhilettns, width=\textwidth, right={\beval b {s_3} = \ltrue}]{
+  \inferrule*[left=\rcompns]{ 
+    \inferrule*[left=\rassns]{ }{\ns {\cass y {\cvar y + \cvar x}} {s_3} {s_4}} \\
+    \inferrule*[left=\rassns]{ }{\ns {\cass x {\cvar x - 1}} {s_4} {s_5}}
+  }{\ns D {s_3} {s_5}} \\
+  {T_3}
+}{\ns C {s_3} {s_7}}
+\]
+
+\[
+\inferrule*[left=\ensuremath{T_3\quad=\quad}\rwhilettns, width=\textwidth, right={\beval b {s_5} = \ltrue}]{
+  \inferrule*[left=\rcompns]{ 
+    \inferrule*[left=\rassns]{ }{\ns {\cass y {\cvar y + \cvar x}} {s_5} {s_6}} \\
+    \inferrule*[left=\rassns]{ }{\ns {\cass x {\cvar x - 1}} {s_6} {s_7}}
+  }{\ns D {s_5} {s_7}} \\
+  {T_4}
+}{\ns C {s_5} {s_7}}
+\]
+
+\[
+\inferrule*[left=\ensuremath{T_4\quad=\quad}\rwhileffns, right={\beval b {s_7} = \lfalse}] { } {\ns C {s_7} {s_7}}
+\]
+
+\end{document}
