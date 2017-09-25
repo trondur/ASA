@@ -260,10 +260,10 @@ S_2 & \cass x 5 \\
 \section*{2.7:}
 The While language can be extended with the \crepeat S b statement:
 \[
-\inferrule*[left=\rrepeatffns, right={\beval b {s_0} = \lfalse}]
+\inferrule*[left=\rrepeatffns, right={\beval b {s_1} = \lfalse}]
 {
-	\cskip
-}{\ns {\crepeat S b} {s_0} {s_0}}
+	{\ns S {s_0} {s_1}}
+}{\ns {\crepeat S b} {s_0} {s_1}}
 \]
 \[
 \inferrule*[left=\rrepeatttns, right={\beval b {s_1} = \ltrue}]
@@ -273,23 +273,60 @@ The While language can be extended with the \crepeat S b statement:
 }{\ns {\crepeat S b} {s_0} {s_x}}
 \]
 
+\noindent Showing that \crepeat S b (A) and \ccomp {S} {\cif b \cskip ({\crepeat S b})} (B) are semantically equivalent:\\
+Assuming that b is false we have that:\\
+\[
+\inferrule*[left=\rrepeatffns, right={\beval b {s'} = \lfalse}]
+{
+	{\ns S {s} {s'}},\\ 
+}{\ns {\crepeat S b} {s} {s'}}
+\]
+\[
+\inferrule*[left=\rcompns]
+{
+	{\ns S {s} {s'}},\\
+	\inferrule*[left=\rifffns, right={\beval b {s'} = \lfalse}]
+	{
+		\cskip
+	}{\cif b \cskip ({\crepeat S b})}
+}{\ns {\ccomp {S} {\cif b \cskip ({\crepeat S b})}} s s'}
+\]
+Assuming that b is true we have that:\\
+\[
+\inferrule*[left=\rrepeatttns, right={\beval b {s'} = \ltrue}]
+{
+	{\ns S {s} {s'}},\\ 
+	{\ns {\crepeat S b} {s'} {s_x} }
+}{\ns {\crepeat S b} {s} {s_x}}
+\]
+\[
+\inferrule*[left=\rcompns]
+{
+	{\ns S {s} {s'}},\\
+	\inferrule*[left=\rifttns, right={\beval b {s'} = \ltrue}]
+	{
+		{\ns {\crepeat S b} {s'} {s_x} }
+	}{\cif b \cskip ({\crepeat S b})}
+}{\ns {\ccomp {S} {\cif b \cskip ({\crepeat S b})}} s s_x}
+\]
+
+
 \section*{2.8:}
 The While language can be extended with the: \cfor A {a_1} {a_2} S, statement:
 \[
-\inferrule*[left=\rforffns, right={\beval {a_2 \le a_1} {s_0} = \lfalse}]
+\inferrule*[left=\rforffns, right={\beval {a_1 \le a_2} {s_0} = \ltrue}]
 {
 	\ns{\cass {A}{a_1}} {s_0} {s_0[A \rightarrow {a_1}]}, \\ 
 	{\ns S {s_0[A \rightarrow {a_1}]} {s_1}}, \\
-	\ns{\cass {A}{A+1}} {s_1} {s_1[A \rightarrow {a_1}]}, \\ 
-	{\ns {\cfor A {a_1} {a_2} S} {s_1} {s_2} }
+	\ns{\cass {A}{A+1}} {s_1} {s_1[A \rightarrow {\cvar A + 1}]}, \\ 
+	{\ns {\cfor A {a_1} {a_2} S} {s_1[A \rightarrow {\cvar A + 1}]} {s_2} }
 }
 {\ns {\cfor A {a_1} {a_2} S} {s_0} {s_2}}
 \]
 \[
-\inferrule*[left=\rforttns, right={\beval {a_2 \le a_1} {s_0} = \ltrue}]
+\inferrule*[left=\rforttns, right={\beval {a_1 \le a_2} {s_0} = \lfalse}]
 {
-	\ns{\cass {A}{a_1}} {s_0} {s_0[A \rightarrow {a_1}]} \\ 
-	{\ns \cskip {s_1}{s_1}}
+	\ns{\cass {A}{a_1}} {s_0} {s_0[A \rightarrow {a_1}]}
 }
 {\ns {\cfor A {a_1} {a_2} S} {s_0} {s_1}}
 \]
