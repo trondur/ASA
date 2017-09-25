@@ -6,27 +6,32 @@
 
 \section*{Exercise 1}
 
-a) The data type Strange is strange, because it lacks a base case. Therefore derivation sequences will be infinite. \\
+\subsection*{a)} The data type Strange is strange, because it lacks a base case. Therefore derivation sequences will be infinite. \\
 
-b) Provide an induction principle for Strange.
-
-c)
+\subsection*{b)} Provide an induction principle for Strange.\\
 $Strange :=\\
 | C1\;bool\;Strange\\
-| C1\;int\;Strange\\
+| C2\;int\;Strange\\
 $
-$$s$$
+\[
+\inferrule*[width=\textwidth]
+{
+	\forall (x\;:\;Strange).\;P\;x \rightarrow(int|bool,\;Strange)
+}{P\;Strange}
+\]
+\subsection*{c)} Assume that you have an element of type Strange. Now prove False.
+
 
 \section*{Exercise 2}
 
 
-$\rasssos \forall a\;s.\;P(\cass x a)\;s\;(s[x \rightarrow \aeval a s])$\\
+\hspace{0.5cm}$\rasssos \forall a\;s.\;P(\cass x a)\;s\;(s[x \rightarrow \aeval a s])$\\
 
 $\rskipsos \forall s.\;P\;\cskip\;s\;s$\\
 
-$\rcompasos \forall s\;s'\;{s''}\;{S_1}\;{S_2}.\;(S_1, s) \dev ({{S'}_1}, s'') \dev P\;S_1\;s\;s''$\\
+$\rcompasos$\\
 
-$\rcompbsos \forall a\;s. P(\cass x a)$\\
+$\rcompbsos$\\
 
 $\rifttsos \forall s\;s'\;b\;{S_1}\;{S_2}.\;\beval b s = \ltrue \dev {\ns {S_1} s {s'}} \dev P\;{S_1}\;s\;s' \dev P \ns {\cif b {S_1} {S_2}} s s'$\\
 
