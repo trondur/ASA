@@ -1,0 +1,71 @@
+\documentclass[a4paper]{paper}
+\usepackage{../mathpartir}
+\usepackage[margin=0.5cm]{geometry}
+\input{../while}
+\begin{document}
+
+\section*{Exercise 1}
+
+a) The data type Strange is strange, because it lacks a base case. Therefore derivation sequences will be infinite. \\
+
+b) Provide an induction principle for Strange.
+
+c)
+$Strange :=\\
+| C1\;bool\;Strange\\
+| C1\;int\;Strange\\
+$
+$$s$$
+
+\section*{Exercise 2}
+
+
+$\rasssos \forall a\;s.\;P(\cass x a)\;s\;(s[x \rightarrow \aeval a s])$\\
+
+$\rskipsos \forall s.\;P\;\cskip\;s\;s$\\
+
+$\rcompasos \forall s\;s'\;{s''}\;{S_1}\;{S_2}.\;(S_1, s) \dev ({{S'}_1}, s'') \dev P\;S_1\;s\;s''$\\
+
+$\rcompbsos \forall a\;s. P(\cass x a)$\\
+
+$\rifttsos \forall s\;s'\;b\;{S_1}\;{S_2}.\;\beval b s = \ltrue \dev {\ns {S_1} s {s'}} \dev P\;{S_1}\;s\;s' \dev P \ns {\cif b {S_1} {S_2}} s s'$\\
+
+$\rifffsos \forall s\;s'\;b\;{S_1}\;{S_2}.\;\beval b s = \lfalse \dev {\ns {S_2} s {s'}} \dev P\;{S_2}\;s\;s' \dev P \ns {\cif b {S_1} {S_2}} s s'$\\
+
+$\rwhilesos \forall s\;s'\;s''\;b\;S.\;{\ns S s {s''}} \dev { \ns{\cwhile b S} {s''} s'}\\
+P\;S\;s\;{s''} \dev P \ns {\cwhile b S} {s''} {s'} \dev P\;(\cwhile b S)\;{s''}\;{s'} \dev \beval b s = \ltrue \dev P\;(\cwhile b S)\;s\;s$\\
+
+$\rwhilesos \forall b\;S.\;\beval b s = \lfalse \dev P\;(\cwhile b S)\;s\;s
+$\\
+
+\section*{Exercise 3}
+Prove that if $(S_1, s) \devk k s'$ then $(S_1;S_2, s) \devk k (S_2, s')$
+
+\noindent We can assume A:
+
+$$({S_1},s) \devk k {s'}$$
+Only two derivation rules can be used to derive B:
+
+$$({S_1};{S_2}, s)\devk k ({S_2}, s')$$
+The first is C:
+\[
+\inferrule*[left=\rcompasos, width=\textwidth]
+{
+	{({S_1}, s) \dev ({S'_1}, s')}
+}
+{({S_1};{S_2}, s)\dev ({S'_1};{S_2}, s')}
+\]
+and the second D:
+\[
+\inferrule*[left=\rcompbsos, width=\textwidth]
+{
+	{({S_1}, s) \dev {s'}}
+}
+{({S_1};{S_2}, s)\dev ({{S_2}, s')}}
+\]
+
+\noindent Since we assume A, that $S_1$ terminates in $s'$ in k steps, we have the assumptions needed to use D and therefore show that the execution of $S_1$ is not influence by the following statements.
+
+\section*{Exercise 4}
+
+\end{document}
