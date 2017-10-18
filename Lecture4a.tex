@@ -1,0 +1,17 @@
+\documentclass[a4paper]{paper}
+\usepackage{mathpartir}
+\usepackage[margin=0.5cm]{geometry}
+\input{while}
+\begin{document}
+
+\[
+\inferrule*[]
+{
+	\inferrule*[left=\rassas]
+	{
+		A
+	} {\cond {P[\cass x a]}\; \cass x a \cond  P}
+} {\cond {x=6}\;\cass x 3;\;\cskip;\;\cass x 42;\;\cond {x=42}}
+\]
+
+\end{document}

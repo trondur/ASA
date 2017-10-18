@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[margin=0.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{placeins}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{%
+  \parbox{\textwidth}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}\vskip-4pt}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\lstset{frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep}
+
+\begin{document}
+\include{frontpage}
+\section*{1:}
+Prove that the following problem is undecidable - \emph{Is boolean variable ‘b’ always true in program P?}
+
+\noindent Assuming we have a program \texttt{bIsTrueInP(P)} that takes another program P as an input and decides whether or not the variable \texttt{b} is always true, we can construct the program R in Listing 1.
+\belowcaptionskip=-10pt
+\begin{lstlisting}[caption=R.cs, language=C]
+bool b = false;
+P // insert the code of P here.
+return b;
+\end{lstlisting}
+If we run \texttt{bIsTrueInP} with R as an input
+\begin{lstlisting}[language=C]
+res = bIsTrueInP(R)
+\end{lstlisting}
+we can conclude that if \texttt{res} is true then the program R halts. If not, program R loops. This way we have solved the halting problem, which has been proven to be undecidable. We have therefore arrived at an contradiction. We must therefore conclude that the problem - \emph{Is boolean variable ‘b’ always true in program P?} - is undecidable
+
+\section*{2:}
+\includegraphics[scale = 0.8]{graph2.png}
+
+\section*{3:}
+\includegraphics[scale = 0.8]{graph3.png}
+
+\end{document}
+

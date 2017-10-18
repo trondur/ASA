@@ -6,30 +6,49 @@
 
 \section*{Exercise 1}
 
-a) The data type Strange is strange, because it lacks a base case. Therefore derivation sequences will be infinite. \\
+\subsection*{a)} The data type Strange is strange, because it lacks a base case.
 
-b) Provide an induction principle for Strange.
+\subsection*{b)} Provide an induction principle for Strange.
+\[
+\inferrule*[]
+{
+	\forall n\;s.\;P\;s\rightarrow P(C_1\;n\;s)\\\\
+	\forall b\;s.\;P\;s\rightarrow P(C_2\;b\;s)
+}{P\;s}
+\]
 
-c)
-$Strange :=\\
-| C1\;bool\;Strange\\
-| C1\;int\;Strange\\
-$
-$$s$$
+\subsection*{c)}
+\[
+	\inferrule*[]
+	{
+		\forall n\;s.\;False\rightarrow False\\\\
+		\forall b\;s.\;False\rightarrow False
+	}{False}
+\]
+
+Assume S:Strange\\
+Prove False\\
+Proof by inductions on S\\
+Case $C_1$\\
+Assume IH $C_1$: False hence False
+Case $C_2$\\
+Assume IH $C_2$: False hence False
 
 \section*{Exercise 2}
-
-
-$\rasssos \forall a\;s.\;P(\cass x a)\;s\;(s[x \rightarrow \aeval a s])$\\
-
-$\rskipsos \forall s.\;P\;\cskip\;s\;s$\\
-
-$\rcompasos \forall s\;s'\;{s''}\;{S_1}\;{S_2}.\;(S_1, s) \dev ({{S'}_1}, s'') \dev P\;S_1\;s\;s''$\\
-
-$\rcompbsos \forall a\;s. P(\cass x a)$\\
-
-$\rifttsos \forall s\;s'\;b\;{S_1}\;{S_2}.\;\beval b s = \ltrue \dev {\ns {S_1} s {s'}} \dev P\;{S_1}\;s\;s' \dev P \ns {\cif b {S_1} {S_2}} s s'$\\
-
+\[
+\begin{array}{l}
+	(S, s) \dev \gamma \\
+	\forall s\; P\;\cskip\;s\;s \\
+	\forall b\;S\;s\;P(\cwhile b S)\;s\;\sos{\cif b {(S;\;\cwhile b S} \cskip}, s)>\\
+	\forall a\;s.\;P(\cass x a)\;s\;(s[x \rightarrow \aeval a s])\\
+	\forall S_1\;S_2\;s\;s'.\; \sos {S_1} s \dev{s'}\rightarrow P\;S_1\;s\;s'\rightarrow P\;(S_1;S_2)\;s\; \sos {S_2} {s'}\\
+	\forall S_1\;S_2\;s\;s'.\; \sos {S_1} s \dev \sos {{S_1}''} {s'}\rightarrow P\;S_1\;s\;s'.\rightarrow P\;(S_1;S_2)\;s\; \sos {S_2} {s'}\\
+	\forall b\;s\;s'\;{S_1}\;{S_2}.\;\beval b s = \ltrue \rightarrow P\;{(\cif b {S_1} {S_2})}\;s\;\sos {S_1} s \\
+	\forall b\;s\;s'\;{S_1}\;{S_2}.\;\beval b s = \lfalse \rightarrow P\;{(\cif b {S_1} {S_2})}\;s\;\sos {S_2} s\\
+	\hline
+	P\;S\;s
+\end{array}
+\]
 $\rifffsos \forall s\;s'\;b\;{S_1}\;{S_2}.\;\beval b s = \lfalse \dev {\ns {S_2} s {s'}} \dev P\;{S_2}\;s\;s' \dev P \ns {\cif b {S_1} {S_2}} s s'$\\
 
 $\rwhilesos \forall s\;s'\;s''\;b\;S.\;{\ns S s {s''}} \dev { \ns{\cwhile b S} {s''} s'}\\
