@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.6)  26 OCT 2017 15:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.6)  26 OCT 2017 16:32
 entering extended mode
 **main
-("D:\Github\ASA\Assignment 6\main.tex"
+("D:\Github\ASA\Assignment 7\main.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -499,8 +499,8 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
-("D:\Github\ASA\Assignment 6\main.aux"
-("D:\Github\ASA\Assignment 6\frontpage.aux"))
+("D:\Github\ASA\Assignment 7\main.aux"
+("D:\Github\ASA\Assignment 7\frontpage.aux"))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
@@ -579,23 +579,12 @@ LaTeX Info: Redefining \ref on input line 13.
 LaTeX Info: Redefining \pageref on input line 13.
 LaTeX Info: Redefining \nameref on input line 13.
 
-("D:\Github\ASA\Assignment 6\main.out") ("D:\Github\ASA\Assignment 6\main.out")
+("D:\Github\ASA\Assignment 7\main.out") ("D:\Github\ASA\Assignment 7\main.out")
 \@outlinefile=\write3
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-("D:\Github\ASA\Assignment 6\frontpage.tex"
-<logo.jpg, id=3, 373.395pt x 274.02374pt>
-File: logo.jpg Graphic file (type jpg)
- <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 4.
-(pdftex.def)             Requested size: 87.87276pt x 64.48756pt.
- [1
-
-
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <D:/Github/ASA/Assignment 
-6/logo.jpg>])
+No file frontpage.tex.
 LaTeX Font Info:    Try loading font information for U+msa on input line 19.
-
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -604,60 +593,50 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 19.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Hasse.png, id=13, 207.02344pt x 219.06844pt>
-File: Hasse.png Graphic file (type png)
- <use Hasse.png>
-Package pdftex.def Info: Hasse.png used on input line 67.
-(pdftex.def)             Requested size: 292.92113pt x 309.99629pt.
+Underfull \hbox (badness 10000) in paragraph at lines 18--25
 
-<Lattices.jpg, id=15, 238.8925pt x 292.09125pt>
-File: Lattices.jpg Graphic file (type jpg)
- <use Lattices.jpg>
-Package pdftex.def Info: Lattices.jpg used on input line 73.
-(pdftex.def)             Requested size: 292.92113pt x 358.17368pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.75 \noindent
-               A $L_1 \times L_2$ lattice will have $|L_1| * |L_2|$ points. ...
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--30
+
+ []
+
 [1
 
- <D:/Github/ASA/Assignment 6/Hasse.png>] [2 <D:/Github/ASA/Assignment 6/Lattice
-s.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 117.
- [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 117.
- ("D:\Github\ASA\Assignment 6\main.aux"
-("D:\Github\ASA\Assignment 6\frontpage.aux"))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 117.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 117.
+
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
+ [2]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
+
+("D:\Github\ASA\Assignment 7\main.aux"
+("D:\Github\ASA\Assignment 7\frontpage.aux"))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 76.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 76.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 117.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 76.
  ) 
 Here is how much of TeX's memory you used:
- 8487 strings out of 493921
- 126596 string characters out of 3144867
- 220090 words of memory out of 3000000
- 11684 multiletter control sequences out of 15000+200000
- 8405 words of font info for 32 fonts, out of 3000000 for 9000
+ 8457 strings out of 493921
+ 126172 string characters out of 3144867
+ 222090 words of memory out of 3000000
+ 11665 multiletter control sequences out of 15000+200000
+ 6549 words of font info for 26 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 36i,7n,38p,317b,352s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,6n,38p,317b,320s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
-C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program File
-s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x8
-6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (4 pages, 162312 bytes).
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (2 pages, 79886 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
- 11 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 52 PDF objects out of 1000 (max. 8388607)
+ 10 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

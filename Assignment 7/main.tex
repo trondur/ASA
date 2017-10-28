@@ -14,77 +14,35 @@
 
 \include{frontpage}
 
-\section*{Relations and Partial-Orders:}
-Signature:
-$$ :) \subseteq S \times S \times \mathbb{R}$$
-Relation:
-$
-\{\emptyset,\emptyset\}, 
-\{\emptyset, \{x+1\}\},
-\{\emptyset, \{2*y\}\}, 
-\{\emptyset, \{z/3\}\}, 
-\{\emptyset, \{x+1, 2*y\}\}, 
-\{\emptyset, \{x+1, z/3\}\}, 
-\{\emptyset, \{2*y, z/3\}\}, 
-\{\emptyset, \{x+1, 2*y, z/3\}\},
-%%
-\{\{x+1\}, \{x+1\}\}, 
-\{\{x+1\}, \{x+1, 2*y\}\}, 
-\{\{x+1\}, \{x+1, z/3\}\}, 
-\{\{x+1\}, \{x+1, 2*y, z/3\}\},
-%%
-\{\{2*y\}, \{2*y\}\},
-\{\{2*y\}, \{x+1, 2*y\}\},
-\{\{2*y\}, \{2*y, z/3\}\}, 
-\{\{2*y\}, \{x+1, 2*y, z/3\}\},
-%%
-\{\{z/3\}, \{z/3\}\},
-\{\{z/3\}, \{x+1, z/3\}\}, 
-\{\{z/3\}, \{2*y, z/3\}\},   
-\{\{z/3\}, \{x+1, 2*y, z/3\}\},
-%%
-\{\{x+1, 2*y\}, \{x+1, 2*y\}\},  
-\{\{x+1, 2*y\}, \{x+1, 2*y, z/3\}\},
-%%
-\{\{2*y, z/3\}, \{2*y, z/3\}\},  
-\{\{2*y, z/3\}, \{x+1, 2*y, z/3\}\},
-%%
-\{\{x+1, z/3\}, \{x+1, z/3\}\},  
-\{\{x+1, z/3\}, \{x+1, 2*y, z/3\}\},
-%%
-\{\{x+1, 2*y, z/3\}, \{x+1, 2*y, z/3\}\},
-$
+\section*{Putting it all Together:}
+Recursive equations:\\
+$a = \bot $\\
+$b = f_{x = 1}$\\
+$c = b $\\
+$d = f_{x = 0}$\\
+$e = d \sqcup f $\\
+$f = f_{swap}$\\
 
-An example of a member of the relation:
-$$(\{x+1, z/3\}, \{x+1, z/3\}) \in :)$$
-$$\{x+1, z/3\}:)\{x+1, z/3\}$$
-An example of a non-member of the relation:
-$$(\{x+1, z/3\}, \{x+1, z/3\}) \notin :)$$
-$$\{x+1, z/3\}\not:)\{x+1, z/3\}$$
-Does the set S and relation form a partial-order?\\
-Yes
-Draw a Hasse diagram:
-\includegraphics[width=0.5\textwidth]{Hasse}
+\noindent Transfer functions:\\
+$f_{x = 1}(l) = + $\\
+$f_{x = 0}(l) = 0 $\\
+$f = f_{swap}(l) = $\\
 
 
-\section*{Greatest-Lower-Bound:}
-
-\section*{Lattices:}
-\includegraphics[width=0.5\textwidth]{Lattices}
-
-\noindent A $L_1 \times L_2$ lattice will have $|L_1| * |L_2|$ points. So the resulting lattice will in this case have $2 * 4 = 8$ points.
 \section*{Monotone Functions and Fixed-Points:}
 
 \subsection*{i)}
 $$X\;=\;\{a,\;b\}$$
 $$Y\;=\;X\cup Y$$
-In equation form:
+\subsection*{In equation form:}
 $$X\;=\;f(X, Y)\;=\;\{a,\;b\}$$
 $$Y\;=\;g(X, Y)\;=\;X\cup Y$$
 Can be written as:
 $$X\;=\;f()\;=\;\{a,\;b\}$$
 $$Y\;=\;g(X, Y)\;=\;X\cup Y$$
+\subsection*{Monotonicity}
 The function $f()$ is monotone, as it is constant. Therefore $f() \sqsubseteq f()$ will always hold. The function $g(X,\;Y)$ is also monotone, as no matter which sets use give the function it will combine them and the resulting set will always be greater or equal to the input sets.
+\subsection*{Least fixed point}
 
 \subsection*{ii)}
 $$X\;=\;\{a,\;b\}\cup Y$$
@@ -109,11 +67,11 @@ $$X\;=\;f(Z)\;=\;\{a,\;b\}\cup Z$$
 $$Y\;=\;g(X)\;=\;\{a,\;c\}\setminus X$$
 $$Z\;=\;h(X)\;=\;X^C$$
 The function $f(Z)$ is monotone, as it return $\{a,\;b\}\cup Z$ which is always a superset of $Z$. If $g(X)$ is monotone then $\forall\;Y,\;Y'\;P(\{a,\;b,\;c\}):\;Y\;\sqsubseteq\;Y'$. However this is not the case:
+$$\emptyset\sqsubseteq \{a,\;b,\;c\}$$
 $$g(\emptyset)\not\sqsubseteq g(\{a,\;b,\;c\})$$
 $$\{a,\;c\}\not\sqsubseteq \emptyset$$
 $g(X)$ is therefore not monotone. $h(X)$ is not monotone either, as:
+$$\emptyset\sqsubseteq \{a,\;b,\;c\}$$
 $$g(\emptyset)\not\sqsubseteq g(\{a,\;b,\;c\})$$
 $$\{a,\;b\;c\}\not\sqsubseteq \emptyset$$
 \end{document}
-
-\subsection*{i)}
