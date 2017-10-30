@@ -16,18 +16,39 @@
 
 \section*{Putting it all Together:}
 Recursive equations:\\
-$a = \bot $\\
-$b = f_{x = 1}$\\
-$c = b $\\
-$d = f_{x = 0}$\\
-$e = d \sqcup f $\\
-$f = f_{swap}$\\
+$a = A()	$\\
+$b = B(a) 	$\\
+$c = C(b)	$\\
+$d = D(c,\;e) $\\
+$e = E(d)	$\\
+$f = F(e)	$\\
 
 \noindent Transfer functions:\\
-$f_{x = 1}(l) = + $\\
-$f_{x = 0}(l) = 0 $\\
-$f = f_{swap}(l) = $\\
+$A = [\bot,\;\bot] $\\
+$B = \lambda E.\;E[x \mapsto +]$\\
+$C = \lambda E.\;E[y \mapsto 0]$\\
+$D = \lambda E.\;\lambda E'.\;E\sqcup E'$\\
+$E = \lambda E.\;E[x \mapsto E[y],\;y\mapsto E[x]]$\\
+$F = \lambda E.\;E[y \mapsto E[y] \oplus\;+]$\\
 
+\noindent Big transfer function:
+$$T(a ,b ,c, d, e, f)\;=\;([\bot,\;\bot],\;a[x\mapsto+],\;b[y\mapsto 0],\;c\sqcup e,\;(d[x \mapsto d[y],\;y\mapsto d[x]]),\;e[y \mapsto e[y] \oplus\;+])$$
+
+\noindent Finding least fixed:
+\begin{enumerate}
+	\item $([\bot,\;\bot],	[\bot,\;\bot], 	[\bot,\;\bot], 	[\bot,\;\bot], 	[\bot,\;\bot], 	[\bot,\;\bot])$
+	\item $([\bot,\;\bot], 	[+,\;\bot], 	[\bot,\;0], 	[\bot,\;\bot],  [\bot,\;\bot],  [\bot,\;\bot])$
+	\item $([\bot,\;\bot], 	[+,\;\bot], 	[+,\;0], 	[\bot,\;0], 	[\bot,\;\bot], 	[\bot,\;\bot])$
+	\item $([\bot,\;\bot], 	[+,\;\bot], 	[+,\;0], 	[+,\;0], 	[0,\;\bot], 	[0,\;\bot])$
+	\item $([\bot,\;\bot], 	[+,\;\bot], 	[+,\;0], 	[0+,\;0], 	[0,\;+], 	[0,\;\bot])$
+	\item $([\bot,\;\bot], 	[+,\;\bot], 	[+,\;0], 	[0+,\;0+], 	[0,\;0+], 	[0,\;+])$
+
+	\item $([\bot,\;\bot], 	[+,\;\bot], 	[+,\;0], 	[0+,\;0+], 	[0+,\;0+], 	[0,\;0+])$
+
+	\item $([\bot,\;\bot], 	[+,\;\bot], 	[+,\;0], 	[0+,\;0+], 	[\bot,\;\bot], 	[\bot,\;\bot])$
+
+	\item $([\bot,\;\bot], 	[+,\;\bot], 	[+,\;0], 	[0+,\;0+], 	[\bot,\;\bot], 	[\bot,\;\bot])$
+\end{enumerate}
 
 \section*{Monotone Functions and Fixed-Points:}
 
